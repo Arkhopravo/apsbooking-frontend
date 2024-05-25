@@ -15,9 +15,11 @@ import 'react-date-range/dist/theme/default.css';
 import {format} from 'date-fns'
 import { SearchContext } from '../../context/SearchContext';
 const Header = ({type}) => {
-  const [destination, setDestination] = useState("")
+    
+    const [destination, setDestination] = useState("")
     const [openDate, setOpenDate] = useState(false)
     const [openOptions, setOpenOptions] = useState(false)
+
     const [options, setOptions] = useState({
         adult:1,
         children: 0,

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
+  const { data, loading, error } = useFetch(`http://localhost:8800/api/hotels/${hotelId}/rooms`);
   const { dates } = useContext(SearchContext);
 
   const getDatesInRange = (startDate, endDate) => {
@@ -55,13 +55,14 @@ const Reserve = ({ setOpen, hotelId }) => {
     try {
       await Promise.all(
         selectedRooms.map((roomId) => {
-          const res = axios.put(`/rooms/availability/${roomId}`, {
+          const res = axios.put(`http://localhost:8800/api/rooms/availability/${roomId}`, {
             dates: alldates,
           });
           return res.data;
         })
       );
       setOpen(false);
+      alert('your room is reserved!')
       navigate("/");
     } catch (err) {}
   };
@@ -85,16 +86,14 @@ const Reserve = ({ setOpen, hotelId }) => {
               <div className="rPrice">{item.price}</div>
             </div>
             <div className="rSelectRooms">
-              {item.roomNumbers.map((roomNumber) => (
-                <div className="room">
-                  <label>{roomNumber.number}</label>
-                  <input
-                    type="checkbox"
-                    value={roomNumber._id}
-                    onChange={handleSelect}
-                    disabled={!isAvailable(roomNumber)}
-                  />
+      
+              {item.roomNumber.map((rooms, index)=> (
+                <>
+                <div className="room" key={index}>
+                  <label>{rooms.number}</label>
+                  <input type="checkbox" value={rooms._id} onChange={handleSelect} disabled={!isAvailable(rooms)} className="" />
                 </div>
+                </>
               ))}
             </div>
           </div>
@@ -109,3 +108,5 @@ const Reserve = ({ setOpen, hotelId }) => {
 };
 
 export default Reserve;
+
+

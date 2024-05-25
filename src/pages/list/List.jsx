@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 import { DateRange } from 'react-date-range'
 import SearchItem from '../../components/searchItems/SearchItems'
 import useFetch from "../../hooks/useFetch";
+import axios from 'axios'
 
 const List = () => {
 
@@ -17,12 +18,24 @@ const List = () => {
   const [options, setOptions] = useState(location.state.options)
   const [min, setMin] = useState(undefined)
   const [max, setMax] = useState(undefined)
-  
-  const { data, loading, error, reFetch} = useFetch(`/hotels?city=${destination}&min=${min || 0 }&max=${max || 999}`
-  )
+  const [items, setItems] = useState([])
+  const [loading, setLoading] = useState(false)
+  // const { data, loading, error, reFetch} = useFetch(`http://localhost:8800/hotels/hotels?city=${destination}`
+  // )
+
+const fetchHotels = async () => {
+  const response = await axios.get(`http://localhost:8800/api/hotels/hotels?city=${destination}`,
+   {credentials: true})
+   const data = response.data
+   setItems(data)
+
+} 
+  useEffect(() => {
+    fetchHotels();
+  }, [destination])
   
   const handleClick = () => {
-        reFetch();
+        
   }
   return (
     <div>
@@ -84,11 +97,23 @@ const List = () => {
           <button onClick={handleClick}>Search</button>
           </div>
             <div className="listResult">
-              {loading ? "loading" : <>
-              {data.map(item=>(
+              {/* {loading ? "loading" : <>
+              </>} */}
+              {/* {items.map(item=>(
             <SearchItem item={item} key={item._id}/>
-              ))}
-              </>}
+              ))} */}
+               {/* <SearchItem /> */}
+
+               {/* {items} */}
+               {loading ? "loading..." : 
+                <>
+                {items.map(item => (
+                  <>
+                   <SearchItem item={item} key={item._id}/>
+                  </>
+                ))}
+                </>
+               }
             </div>
         </div>
       </div>

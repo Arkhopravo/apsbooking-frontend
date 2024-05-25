@@ -3,9 +3,11 @@ import "./Featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=mumbai,barlin,goa"
+    "http://localhost:8800/api/hotels/countByCity?city=kolkata&city=goa"
+
   );
 
+  console.log(data)
   return (
     <div className="featured">
       {loading ? (
