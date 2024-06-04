@@ -1,6 +1,6 @@
 import React,{useContext, useState} from 'react'
 import './Header.css'
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import LocalHotelIcon from '@mui/icons-material/LocalHotel';
 import BedIcon from '@mui/icons-material/Bed';
 import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
@@ -14,6 +14,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css';
 import {format} from 'date-fns'
 import { SearchContext } from '../../context/SearchContext';
+
 const Header = ({type}) => {
     
     const [destination, setDestination] = useState("")
@@ -47,31 +48,47 @@ const Header = ({type}) => {
         navigate("/hotels", {state: {destination,dates,options }} )
    }
 
+   const Options = [
+    {
+      name: "Stays",
+      Icon: LocalHotelIcon,
+      link: "/stays"
+    },
+    {
+      name: "Flights",
+      Icon: FlightIcon,
+      link: "/flights"
+    },
+    {
+      name: "Attractions",
+      Icon: BedIcon,
+      link: "/attractions"
+    },
+    {
+      name: "Car Rentals",
+      Icon: DirectionsCarFilledIcon,
+      link: "/car-rentals"
+    },
+    {
+      name: "Airport Taxis",
+      Icon: LocalTaxiIcon,
+      link: "/airport-taxis"
+    }
+  ];
   return (
     <div className='header'>
        <div className={type === "list" ? "headerListContainer listMode" : "headerListContainer" }>
        <div className="headerList">
-            <div className="headerListItem active">
-              <LocalHotelIcon  />
-              <span>Stays</span>             
-            </div>
-            <div className="headerListItem">
-              <FlightIcon />
-              <span>Flights</span>             
-            </div>
-            
-            <div className="headerListItem">
-              <BedIcon/>
-              <span>Attractions</span>             
-            </div>
-            <div className="headerListItem">
-              <DirectionsCarFilledIcon />
-              <span>Car Rentals</span>             
-            </div>
-            <div className="headerListItem">
-              <LocalTaxiIcon />
-              <span>Airport Taxis</span>             
-            </div>
+                      
+           {Options.map(option => (
+        <Link key={option.name} to={option.link} style={{textDecoration:"none", color:"white", padding:"2px "}}>
+          <div className='headerListItem'>
+            <option.Icon />
+            <span>{option.name}</span>
+          </div>
+        </Link>
+      ))}
+     
         </div>
           {type !== "list" && <>
           

@@ -14,10 +14,11 @@
 }
 .headerList{
     display:flex;
-    gap: 10px;
+    gap: 5px;
     margin-bottom: 50px;
+    margin-left: 30px;
    @media screen and (max-width: 1200px)  {
-      gap:40px;
+      gap:20px;
    }
     
 }
@@ -38,14 +39,24 @@
 }
 
 
-.headerListItem.active{
+.headerListItem:active{
     border: 1px solid white;
 
-    padding: 5px;
+    
     border-radius: 10px;
     margin-left: 10px;
 
 }
+
+.headerListItem:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background color on hover */
+
+    
+    border-radius: 10px;
+    margin-left: 10px;
+  }
+  
+ 
 
 .headerDesc{
     margin: 20px 30px;

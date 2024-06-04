@@ -104,7 +104,7 @@ const Hotel = () => {
  
   <>
   <div>
-    <Navbar/>
+    
     <Header type="list" />
     {loading? (
       "loading..."

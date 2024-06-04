@@ -11,8 +11,8 @@ import './Home.css'
 const Home = () => {
   return (
     <div>
-        <Navbar/>
-        <Header/>
+        
+        
         <div className="homeContainer">
           <Featured/>
           <h1 className="homeTitle">Browse by property type</h1>
