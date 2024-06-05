@@ -1,66 +1,30 @@
 import React from 'react'
-import './Atractions.css'
-
-const data = [
-  {
-    
-    sr: '1',
-
-    train_no:'12345',
-    train_name:'',
-    sector:'',
-    frequencies:'',
-    travel_time:""
-  },
-  {
-    
-    sr: '2',
-
-    train_no:'23456',
-    train_name:'',
-    sector:'',
-    frequencies:'',
-    travel_time:""
-  },
-  {
-    
-    sr: '3',
-
-    train_no:'34567',
-    train_name:'',
-    sector:'',
-    frequencies:'',
-    travel_time:""
-  },
-  {
-    
-
-    sr: '4',
-    train_no:'45678',
-    train_name:'',
-    sector:'',
-    frequencies:'',
-    travel_time:""
-  },
-  {
-    
-    sr: '5',
-    train_no:'56789',
-    train_name:'',
-    sector:'',
-    frequencies:'',
-    travel_time:""
-  },
- 
-]
-
+import Navbar from '../../components/navbar/Navbar'
+import Header from '../../components/header/Header'
+import './attractions.css'
 const Attractions = () => {
+
   return (
-    <div className='train'>
-      <img src="https://promos.makemytrip.com/images/VandeBharat-tb-dt-050523.webp" alt="" />
-      <h1>Book tickets for Vande Bharat Express with us hassle-free & enjoy comfortable train journeys.</h1>
-      
+    <>
+    <Navbar/>
+    <Header/>
+    <div className="train">
+        <img src="https://promos.makemytrip.com/images/VandeBharat-tb-dt-050523.webp" alt="" className=""  />
     </div>
+
+    <div className="booking">
+      <h1>Book tickets for Vande Bharat Express with us hassle-free & enjoy comfortable train journeys.</h1>
+
+      <div className="items">
+    <button className="btn">NORTH</button>
+    <button className="btn">SOUTH</button>
+    <button className="btn">CENTRAL</button>
+    <button className="btn">WEST</button>
+    <button className="btn">EAST</button>
+</div>
+
+    </div>
+    </>
   )
 }
 

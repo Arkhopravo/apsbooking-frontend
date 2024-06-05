@@ -49,51 +49,51 @@ const Header = ({type}) => {
         navigate("/hotels", {state: {destination,dates,options }} )
    }
 
-   const Options = [
-    {
-      name: "Stays",
-      Icon: LocalHotelIcon,
-      link: "/stays"
-    },
-    {
-      name: "Flights",
-      Icon: FlightIcon,
-      link: "/flights"
-    },
-    {
-      name: "Attractions",
-      Icon: BedIcon,
-      link: "/attractions"
-    },
-    {
-      name: "Car Rentals",
-      Icon: DirectionsCarFilledIcon,
-      link: "/car-rentals"
-    },
-    {
-      name: "Airport Taxis",
-      Icon: LocalTaxiIcon,
-      link: "/airport-taxis"
-    },
-    {
-      name: "Insurance",
-      Icon: '',
-      link: "/insurance"
-    }
-  ];
+  //  const Options = [
+  //   {
+  //     name: "Stays",
+  //     Icon: LocalHotelIcon,
+  //     link: "/stays"
+  //   },
+  //   {
+  //     name: "Flights",
+  //     Icon: FlightIcon,
+  //     link: "/flights"
+  //   },
+  //   {
+  //     name: "Attractions",
+  //     Icon: BedIcon,
+  //     link: "/attractions"
+  //   },
+  //   {
+  //     name: "Car Rentals",
+  //     Icon: DirectionsCarFilledIcon,
+  //     link: "/car-rentals"
+  //   },
+  //   {
+  //     name: "Airport Taxis",
+  //     Icon: LocalTaxiIcon,
+  //     link: "/airport-taxis"
+  //   },
+  //   {
+  //     name: "Insurance",
+  //     Icon: '',
+  //     link: "/insurance"
+  //   }
+  // ];
   return (
     <div className='header'>
        <div className={type === "list" ? "headerListContainer listMode" : "headerListContainer" }>
        <div className="headerList">
                       
-           {Options.map(option => (
+           {/* {Options.map(option => (
         <Link key={option.name} to={option.link} style={{textDecoration:"none", color:"white", padding:"2px "}}>
           <div className='headerListItem'>
             <option.Icon />
             <span>{option.name}</span>
           </div>
         </Link>
-      ))}
+      ))} */}
      
         </div>
           {type !== "list" && <>

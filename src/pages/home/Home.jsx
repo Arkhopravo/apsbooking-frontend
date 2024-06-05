@@ -11,7 +11,8 @@ import './Home.css'
 const Home = () => {
   return (
     <div>
-        
+         <Navbar/>
+    <Header />
         
         <div className="homeContainer">
           <Featured/>

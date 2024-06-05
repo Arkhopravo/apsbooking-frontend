@@ -12,25 +12,20 @@ import Client from './client/Client';
 import AirportTexis from './pages/AirportTexis/AirportTexis';
 import Cars from './pages/Cars/Cars';
 import Flights from './pages/Flights/Flights';
-import Attractions from './pages/Attractions/Attractions';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
 import Stays from './pages/Stays/Stays';
+import Attractions from './pages/Attractions/Attractions';
 
 function App() {
   const { user } = useContext(AuthContext);
   const location = useLocation();
-  const isHotelRoute = location.pathname.startsWith('/hotels');
+  
 
   return (
     <>
-    {!isHotelRoute && 
-    <>
-    
-    <Navbar/>
-    <Header />
-    </> 
-    }
+  
+   
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/airport-taxis" element={<AirportTexis/>}/>
