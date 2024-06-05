@@ -15,6 +15,7 @@ import Flights from './pages/Flights/Flights';
 import Attractions from './pages/Attractions/Attractions';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
+import Stays from './pages/Stays/Stays';
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -36,7 +37,7 @@ function App() {
       <Route path="/car-rentals" element={<Cars/>}/>
       <Route path="/flights" element={<Flights/>}/>
       <Route path='/attractions' element={<Attractions/>} />
-
+      <Route path="/stays" element={<Stays/>}/>
       <Route path="/hotels" element={<List/>}/>
       <Route path="/hotels/:id" element={<Hotel/>}/>
       <Route path="/hotels/:id/reserve" element={<Reserve/>}/>

@@ -14,6 +14,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css';
 import {format} from 'date-fns'
 import { SearchContext } from '../../context/SearchContext';
+// import { AiFillInsurance } from "react-icons/ai";
 
 const Header = ({type}) => {
     
@@ -73,6 +74,11 @@ const Header = ({type}) => {
       name: "Airport Taxis",
       Icon: LocalTaxiIcon,
       link: "/airport-taxis"
+    },
+    {
+      name: "Insurance",
+      Icon: '',
+      link: "/insurance"
     }
   ];
   return (
@@ -150,7 +156,9 @@ const Header = ({type}) => {
            <button className='headerBtn' onClick={handleSearch}>Search</button>
             </div>
 
-          </div></>}
+          </div>
+          
+          </>}
        </div>
     </div>
   )
